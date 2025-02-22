@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskSphere Ultra</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="auth-container" class="auth-box">
+            <h1>TaskSphere Ultra</h1>
+            <div class="auth-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+                <p><a href="#" onclick="showForgotPassword()">Forgot Password?</a></p>
+            </div>
+            <div id="forgot-password" class="hidden">
+                <input type="email" id="reset-email" placeholder="Enter your email">
+                <button onclick="resetPassword()">Reset Password</button>
+                <button onclick="hideForgotPassword()">Back</button>
+            </div>
+        </div>
+
+        <div id="app-container" class="app-box hidden">
+            <div class="header">
+                <h1>TaskSphere Ultra - <span id="currentUser"></span></h1>
+                <div class="header-actions">
+                    <button onclick="taskManager.showAnalytics()">Analytics</button>
+                    <button onclick="toggleTheme()" id="themeToggle">Dark Mode</button>
+                    <button onclick="exportTasks()">Export</button>
+                    <button onclick="importTasks()">Import</button>
+                    <button onclick="logout()">Logout</button>
+                </div>
+            </div>
+
+            <div class="task-input">
+                <input type="text" id="taskInput" placeholder="Add a new task...">
+                <button onclick="startVoiceInput()" title="Voice Input">🎤</button>
+                <select id="categorySelect"></select>
+                <input type="text" id="newCategory" placeholder="New category" onkeypress="if(event.key === 'Enter') addCategory()">
+                <select id="prioritySelect">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <input type="datetime-local" id="dueDate">
+                <input type="datetime-local" id="reminder">
+                <select id="recurring">
+                    <option value="none">One-time</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+                <input type="text" id="tags" placeholder="Tags (comma-separated)">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search tasks..." onkeyup="searchTasks()">
+            </div>
+
+            <div class="progress-bar">
+                <div id="progress" class="progress-fill"></div>
+            </div>
+
+            <div class="task-list" id="taskList"></div>
+            <div id="analytics" class="analytics hidden"></div>
+        </div>
+    </div>
+    <div id="notification" class="notification"></div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="Script.js"></script>
+</body>
+</html>
