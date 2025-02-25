@@ -89,4 +89,4 @@ DEMO LINK: https://akhil-jonnalagadda.github.io/TaskSphere-Ultra/
 
 ---
 
-*Made with 💖 by Akhil Jonnalagadda• Ready to rule your tasks? Let’s go!*  
+*Made with 💖 by Akhil Jonnalagadda• 
